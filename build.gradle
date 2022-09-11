@@ -3,6 +3,10 @@ buildscript {
     dependencies {
         classpath 'com.jakewharton:butterknife-gradle-plugin:10.2.3'
     }
+    repositories {
+        google()
+        mavenCentral()
+    }
 }
 plugins {
     id 'com.android.application' version '7.2.2' apply false
