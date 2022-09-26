@@ -26,6 +26,6 @@ public class SquareImage extends androidx.appcompat.widget.AppCompatImageView {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         // This function has 2 params are width and height.
         // And now both of them equal width of phone
-        setMeasuredDimension(getMeasuredWidth(), getMeasuredWidth());
+        setMeasuredDimension(getMeasuredWidth(), getMeasuredHeight());
     }
 }

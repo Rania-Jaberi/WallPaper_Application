@@ -5,10 +5,12 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.CollectionsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <GridView
+        android:id="@+id/fragment_collections_gridview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello Collection Fragment" />
+        android:layout_height="wrap_content"
+        android:numColumns="2"
+        android:verticalSpacing="2dp"
+        android:horizontalSpacing="2dp"/>
 
 </FrameLayout>
