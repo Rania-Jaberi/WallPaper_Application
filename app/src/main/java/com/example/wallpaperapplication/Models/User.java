@@ -8,7 +8,7 @@ public class User {
     @SerializedName("username")
     private String username;
     @SerializedName("profile_image")
-    private ProfileImage profileImage = new ProfileImage();
+    private ProfileImage profile_image = new ProfileImage();
 
     public String getId() {
         return id;
@@ -27,10 +27,19 @@ public class User {
     }
 
     public ProfileImage getProfileImage() {
-        return profileImage;
+        return profile_image;
     }
 
     public void setProfileImage(ProfileImage profileImage) {
-        this.profileImage = profileImage;
+        this.profile_image = profileImage;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", username='" + username + '\'' +
+                ", profile_image=" + profile_image +
+                '}';
     }
 }

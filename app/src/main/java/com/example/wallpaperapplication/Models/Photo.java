@@ -8,7 +8,7 @@ public class Photo {
     @SerializedName("description")
     private String description;
     @SerializedName("urls")
-    private PhotoUrl url = new PhotoUrl();
+    private PhotoUrl urls = new PhotoUrl();
     @SerializedName("user")
     private User user = new User();
 
@@ -29,11 +29,11 @@ public class Photo {
     }
 
     public PhotoUrl getUrl() {
-        return url;
+        return urls;
     }
 
     public void setUrl(PhotoUrl url) {
-        this.url = url;
+        this.urls = url;
     }
 
     public User getUser() {
@@ -42,5 +42,15 @@ public class Photo {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Photo{" +
+                "id='" + id + '\'' +
+                ", description='" + description + '\'' +
+                ", urls=" + urls +
+                ", user=" + user +
+                '}';
     }
 }

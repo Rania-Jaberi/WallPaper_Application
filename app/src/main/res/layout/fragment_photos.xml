@@ -4,16 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.PhotosFragment">
-    <ProgressBar
+    <!--<ProgressBar
         android:id="@+id/fragmentphotos_progressbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:outlineSpotShadowColor="@color/purple_200"></ProgressBar>
+        android:outlineSpotShadowColor="@color/purple_200"></ProgressBar>-->
 
 <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/fragmentphotos_recyclerview"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
+    android:layout_height="wrap_content">
+</androidx.recyclerview.widget.RecyclerView>
 
 </RelativeLayout>

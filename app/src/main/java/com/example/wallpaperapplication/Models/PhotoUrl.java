@@ -23,4 +23,12 @@ public class PhotoUrl {
     public void setRegular(String regular) {
         this.regular = regular;
     }
+
+    @Override
+    public String toString() {
+        return "PhotoUrl{" +
+                "full='" + full + '\'' +
+                ", regular='" + regular + '\'' +
+                '}';
+    }
 }

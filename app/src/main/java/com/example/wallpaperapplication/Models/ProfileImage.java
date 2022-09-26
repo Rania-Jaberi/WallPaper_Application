@@ -23,4 +23,12 @@ public class ProfileImage {
     public void setMeduim(String meduim) {
         this.meduim = meduim;
     }
+
+    @Override
+    public String toString() {
+        return "ProfileImage{" +
+                "small='" + small + '\'' +
+                ", meduim='" + meduim + '\'' +
+                '}';
+    }
 }
