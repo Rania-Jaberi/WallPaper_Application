@@ -5,12 +5,13 @@
     android:layout_height="match_parent"
     tools:context=".Fragments.CollectionsFragment">
 
+
     <GridView
         android:id="@+id/fragment_collections_gridview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:horizontalSpacing="2dp"
         android:numColumns="2"
-        android:verticalSpacing="2dp"
-        android:horizontalSpacing="2dp"/>
+        android:verticalSpacing="2dp" />
 
 </FrameLayout>

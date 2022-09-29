@@ -4,13 +4,13 @@ import com.google.gson.annotations.SerializedName;
 
 public class Collection {
     @SerializedName("id")
-    private int id;
+    private String id;
 
     @SerializedName("title")
-    private int title;
+    private String title;
 
     @SerializedName("description")
-    private int description;
+    private String description;
 
     @SerializedName("total_photos")
     private int totalPhotos;
@@ -18,10 +18,7 @@ public class Collection {
     @SerializedName("cover_photo")
     private Photo coverPhoto = new Photo();
 
-    @SerializedName("user")
-    private User user = new User();
-
-    public Collection(int id, int title, int description, int totalPhotos, Photo coverPhoto, User user) {
+    public Collection(String id, String title, String description, int totalPhotos, Photo coverPhoto, User user) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -30,27 +27,30 @@ public class Collection {
         this.user = user;
     }
 
-    public int getId() {
+    @SerializedName("user")
+    private User user = new User();
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public int getTitle() {
+    public String getTitle() {
         return title;
     }
 
-    public void setTitle(int title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
-    public int getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(int description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
@@ -76,5 +76,17 @@ public class Collection {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Collection{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", totalPhotos=" + totalPhotos +
+                ", coverPhoto=" + coverPhoto +
+                ", user=" + user +
+                '}';
     }
 }

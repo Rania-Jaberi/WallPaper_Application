@@ -38,7 +38,7 @@ public class CollectionAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return collections.get(position).getId();
+        return Long.parseLong(collections.get(position).getId());
     }
 
     @Override
