@@ -42,7 +42,7 @@
         app:menu_colorNormal="@color/colorAccent"
         app:menu_colorPressed="@color/colorAccent">
         <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/activity_fullscreen_photo_fab_button"
+            android:id="@+id/activity_fullscreen_photo_fab_favorite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:fab_size="mini"
