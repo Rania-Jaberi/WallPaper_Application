@@ -31,6 +31,7 @@ public class Collection {
     private User user = new User();
 
     public String getId() {
+
         return id;
     }
 

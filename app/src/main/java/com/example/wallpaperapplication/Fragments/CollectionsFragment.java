@@ -16,6 +16,7 @@ import com.example.wallpaperapplication.Adapters.CollectionAdapter;
 
 import com.example.wallpaperapplication.Models.Collection;
 import com.example.wallpaperapplication.R;
+import com.example.wallpaperapplication.Utils.Functions;
 import com.example.wallpaperapplication.WebService.RetrofitClient;
 
 import java.util.ArrayList;
@@ -24,6 +25,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import butterknife.OnItemClick;
 import butterknife.Unbinder;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -50,7 +52,15 @@ private List<Collection> collections = new ArrayList<>();
        getCollections();
         return view;
     }
-
+@OnItemClick(R.id.fragment_collections_gridview)
+public void setGridView(int position){
+        Collection collection= collections.get(position);
+        Bundle bundle = new Bundle();
+        bundle.putInt("collectionId", Integer.parseInt(collection.getId()));
+        CollectionFragment collectionFragment = new CollectionFragment();
+        collectionFragment.setArguments(bundle);
+    Functions.changeMainFragmentWithBack(getActivity(), collectionFragment);
+}
 
     private void getCollections(){
         RetrofitClient.getInstance().getApi()
