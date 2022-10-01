@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import com.bumptech.glide.request.transition.Transition;
 import com.example.wallpaperapplication.Models.Collection;
 import com.example.wallpaperapplication.Models.Photo;
 import com.example.wallpaperapplication.R;
+import com.example.wallpaperapplication.Utils.Functions;
 import com.example.wallpaperapplication.Utils.GlideApp;
 import com.example.wallpaperapplication.WebService.RetrofitClient;
 import com.github.clans.fab.FloatingActionButton;
@@ -45,6 +47,8 @@ public class FullScreenPhotoActivity extends AppCompatActivity {
     FloatingActionButton fabWallpaper;
     @BindView(R.id.activity_fullscreen_photo_username)
     TextView username;
+
+    private Bitmap photoBitmap;
     private List<Photo> photos = new ArrayList<>();
     private Unbinder unbinder;
 
@@ -93,6 +97,7 @@ public class FullScreenPhotoActivity extends AppCompatActivity {
                         @Override
                         public void onResourceReady(Bitmap resource, Transition<? super Bitmap> transition) {
                             fullscreenPhoto.setImageBitmap(resource);
+                            photoBitmap = resource;
                         }
                     });
         } catch (Exception e) {
@@ -107,8 +112,16 @@ public class FullScreenPhotoActivity extends AppCompatActivity {
 
     @OnClick(R.id.activity_fullscreen_photo_fab_wallpaper)
     public void setFabWallpaper() {
-        super.onDestroy();
-        unbinder.unbind();
+        if(photoBitmap != null){
+        if(Functions.setWallpaper(FullScreenPhotoActivity.this, photoBitmap)){
+            Toast.makeText(FullScreenPhotoActivity.this, "Set Wallpaper Succefully", Toast.LENGTH_LONG).show();
+        }else {
+            Toast.makeText(FullScreenPhotoActivity.this, "Set Wallpaper Fail", Toast.LENGTH_LONG).show();
+        }
+        //super.onDestroy();
+        //unbinder.unbind();
+    }
+        fabMenu.close(true);
     }
 
 }
