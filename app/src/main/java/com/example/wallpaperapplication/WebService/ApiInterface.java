@@ -16,9 +16,12 @@ public interface  ApiInterface {
     @GET ("collections/?client_id=u5gUoExdE7e5lTH1f9p_OARJe1c_Z2ebm3WDYLFCjCE")
     Call<List<Collection>> getCollections();
 
-    @GET("collections/{id}")
+    @GET("collections/{id}/?client_id=u5gUoExdE7e5lTH1f9p_OARJe1c_Z2ebm3WDYLFCjCE")
     Call<Collection> getInformaionOfCollection(@Path("id") int id);
 
-    @GET("collections/{id}/photos")
+    @GET("collections/{id}/photos/?client_id=u5gUoExdE7e5lTH1f9p_OARJe1c_Z2ebm3WDYLFCjCE")
     Call<List<Photo>> getPhotosOfCollection(@Path("id") int id);
+
+    @GET("photos/{id}/?client_id=u5gUoExdE7e5lTH1f9p_OARJe1c_Z2ebm3WDYLFCjCE")
+    Call<Photo> getPhoto(@Path("id") String id);
 }

@@ -41,7 +41,6 @@ public class CollectionFragment extends Fragment {
     CircleImageView userAvatar;
     @BindView(R.id.collection_item_title)
     TextView title;
-
     @BindView(R.id.fragment_collection_recyclerview)
     RecyclerView recyclerView;
 
