@@ -30,9 +30,9 @@ public class Collection {
     @SerializedName("user")
     private User user = new User();
 
-    public String getId() {
+    public long getId() {
 
-        return id;
+        return Long.parseLong(id);
     }
 
     public void setId(String id) {

@@ -10,9 +10,9 @@ public class AppController extends Application {
     public void onCreate() {
         super.onCreate();
         Realm.init(this);
-        RealmConfiguration realmConfiguration = new RealmConfiguration.Builder()
-                .name("wallpaper.realm")
-                .build();
-        Realm.setDefaultConfiguration(realmConfiguration);
+      //  RealmConfiguration realmConfiguration = new RealmConfiguration.Builder()
+        //        .name("wallpaper.realm")
+          //      .build();
+        //Realm.setDefaultConfiguration(realmConfiguration);
     }
 }

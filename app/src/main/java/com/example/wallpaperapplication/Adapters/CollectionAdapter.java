@@ -20,6 +20,7 @@ import butterknife.ButterKnife;
 public class CollectionAdapter extends BaseAdapter {
     private Context context;
     private List<Collection> collections;
+    private final String TAG = "collectionNow" ;
 
     public CollectionAdapter(Context context, List<Collection> collections) {
         this.context = context;
@@ -33,12 +34,15 @@ public class CollectionAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
+
         return collections.get(position);
     }
 
     @Override
-    public long getItemId(int position) {
-        return Long.parseLong(collections.get(position).getId());
+     public long getItemId(int position) {
+
+        return  collections.get(position).getId();
+
     }
 
     @Override
@@ -71,8 +75,12 @@ public class CollectionAdapter extends BaseAdapter {
         TextView totalPhotos;
         @BindView(R.id.collection_item_photo)
         SquareImage collectionPhoto;
+
         public ViewHolder(View view){
             ButterKnife.bind(this, view);
         }
+
+
     }
+
 }

@@ -1,10 +1,14 @@
 package com.example.wallpaperapplication.Activities;
 
+import static com.example.wallpaperapplication.R.id.nav_collection;
+
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 
+import com.example.wallpaperapplication.Fragments.CollectionFragment;
+import com.example.wallpaperapplication.Fragments.CollectionsFragment;
 import com.example.wallpaperapplication.Fragments.PhotosFragment;
 import com.example.wallpaperapplication.R;
 import com.example.wallpaperapplication.Utils.Functions;
@@ -63,4 +67,14 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-}
+          //  @Override
+            //public void onCollectionSelected(String collectionId) {
+              //  CollectionFragment fragment = (CollectionFragment) getSupportFragmentManager()
+                //        .findFragmentById(nav_collection);
+                //if (fragment != null && fragment.isInLayout()) {
+                  //  Bundle bundle = new Bundle();
+                    //fragment.getArguments();
+                     //bundle.getString("collectionId");
+                //}
+            //}
+            }

@@ -1,7 +1,7 @@
 package com.example.wallpaperapplication.Adapters;
-
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +38,7 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.ViewHolder> 
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        private final String TAG = "jet";
         @BindView(R.id.item_photo_user_avatar)
         CircleImageView userAvatar;
         @BindView(R.id.item_photo_username)
@@ -53,7 +54,8 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.ViewHolder> 
         }
 
         @OnClick(R.id.item_photo_layout)
-        public void setFrameLayout(){
+        public void handleOnClick(){
+            Log.d(TAG, "dmmmmmmmmm");
             int position = getAdapterPosition();
             String photoId = photos.get(position).getId();
             Intent intent = new Intent(context, FullScreenPhotoActivity.class);

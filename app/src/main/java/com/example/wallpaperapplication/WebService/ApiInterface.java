@@ -17,7 +17,7 @@ public interface  ApiInterface {
     Call<List<Collection>> getCollections();
 
     @GET("collections/{id}/?client_id=u5gUoExdE7e5lTH1f9p_OARJe1c_Z2ebm3WDYLFCjCE")
-    Call<Collection> getInformaionOfCollection(@Path("id") int id);
+    Call<Collection> getInformaionOfCollection(@Path("id") String id);
 
     @GET("collections/{id}/photos/?client_id=u5gUoExdE7e5lTH1f9p_OARJe1c_Z2ebm3WDYLFCjCE")
     Call<List<Photo>> getPhotosOfCollection(@Path("id") int id);

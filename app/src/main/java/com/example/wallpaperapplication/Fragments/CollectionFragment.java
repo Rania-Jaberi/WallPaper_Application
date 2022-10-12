@@ -2,6 +2,7 @@ package com.example.wallpaperapplication.Fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,7 +11,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.wallpaperapplication.Adapters.PhotoAdapter;
 import com.example.wallpaperapplication.Models.Collection;
@@ -32,43 +36,50 @@ import retrofit2.Response;
 
 
 public class CollectionFragment extends Fragment {
-    private final String TAG = "Rania";
-    @BindView(R.id.fragment_collection_username)
-    TextView username;
-    @BindView(R.id.fragment_collection_description)
-    TextView description;
+    private final String TAG = "jet";
+    @BindView(R.id.fragment_collection_linearlayout)
+    LinearLayout linearLayout;
+
+    @BindView(R.id.fragment_collection_recyclerview)
+    RecyclerView PhotorecyclerView;
     @BindView(R.id.fragment_collection_user_avatar)
     CircleImageView userAvatar;
-    @BindView(R.id.collection_item_title)
+    @BindView(R.id.fragment_collection_username)
+    TextView username;
+    //@BindView(R.id.collection_item_framellayout)
+    //FrameLayout frameLayout;
+    //TextView title =(frameLayout).findViewById(R.id.collection_item_title);
+    @BindView(R.id.fragment_collection_textview)
     TextView title;
-    @BindView(R.id.fragment_collection_recyclerview)
-    RecyclerView recyclerView;
+    @BindView(R.id.fragment_collection_description)
+    TextView description;
 
     private List<Photo> photos = new ArrayList<>();
     private PhotoAdapter photoAdapter;
 
     private Unbinder unbinder;
-
+    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
          View view= inflater.inflate(R.layout.fragment_collection, container, false);
         unbinder = ButterKnife.bind(this, view);
-        // RecyclerView
-
-        LinearLayoutManager linearLayoutManager= new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(linearLayoutManager);
+        LinearLayoutManager linearLayoutManager= new LinearLayoutManager(requireActivity());
+        PhotorecyclerView.setLayoutManager(linearLayoutManager);
         photoAdapter = new PhotoAdapter(getActivity(), photos);
-        recyclerView.setAdapter(photoAdapter);
+        PhotorecyclerView.setAdapter(photoAdapter);
+
 
         Bundle bundle = getArguments();
-        int collectionId = bundle.getInt("collectionId");
+        String collectionId = bundle.getString("collectionId");
+        Log.d(TAG, collectionId);
         getInformationOfCollection(collectionId);
         getPhotosOfCollection(collectionId);
+
         return view;}
 
-    private  void getInformationOfCollection(final int collectionId){
+    private  void getInformationOfCollection(final String collectionId){
         RetrofitClient.getInstance().getApi()
                 .getInformaionOfCollection(collectionId).enqueue(new Callback<Collection>() {
                     @Override
@@ -99,9 +110,9 @@ public class CollectionFragment extends Fragment {
 
 
 
-    private void getPhotosOfCollection(int collectionId){
+    private void getPhotosOfCollection(String collectionId){
         RetrofitClient.getInstance().getApi()
-                .getPhotosOfCollection(collectionId).enqueue(new Callback<List<Photo>>() {
+                .getPhotosOfCollection(Integer.parseInt(collectionId)).enqueue(new Callback<List<Photo>>() {
                     @Override
                     public void onResponse(Call<List<Photo>> call,
                                            Response<List<Photo>> response) {
@@ -112,21 +123,26 @@ public class CollectionFragment extends Fragment {
                             Log.d(TAG, photo.getUrl().getFull());
                         }
                         photoAdapter.notifyDataSetChanged();
-                        //showProgressBar(true);
+                        // showProgressBar(true);
                     }
 
                     @Override
                     public void onFailure(Call<List<Photo>> call, Throwable t) {
 
                         Log.d(TAG, "Fail: " + t.getMessage());
-                        // showProgressBar(false);
+                        //  showProgressBar(false);
                     }
                 });
 
     }
 
+
+
+
     @Override
     public void onDestroyView() {
+
         super.onDestroyView();
+
     }
 }

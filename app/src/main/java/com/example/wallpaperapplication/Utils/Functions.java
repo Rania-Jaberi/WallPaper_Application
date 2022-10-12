@@ -16,8 +16,8 @@ import com.example.wallpaperapplication.R;
 import java.io.IOException;
 
 public class Functions {
-    public static void changeMainFragment(FragmentActivity activity, CollectionFragment collectionFragment) {
-    }
+    //public static void changeMainFragment(FragmentActivity activity, CollectionFragment collectionFragment) {
+    //}
      public static void changeMainFragment( FragmentActivity fragmentActivity, Fragment fragment){
        fragmentActivity.getSupportFragmentManager()
            .beginTransaction()
@@ -25,10 +25,10 @@ public class Functions {
            .commit();
     }
 
-    public static void changeMainFragmentWithBack( FragmentActivity fragmentActivity, Fragment fragment){
+    public static void changeMainFragmentWithBack(FragmentActivity fragmentActivity, Fragment fragment){
         fragmentActivity.getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.fragment_collections_gridview, fragment)
+                .replace(R.id.main_container, fragment)
                 .addToBackStack(null)
                 .commit();
     }
